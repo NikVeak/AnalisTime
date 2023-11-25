@@ -173,8 +173,9 @@ def main():
 
         forecast['date'] = date_res
         data_forecast = forecast.to_dict('records')
+        name_collection = str(input("Введите имя новой коллекции бд: "))
         print(data_forecast)
-        collection = db['forecastQuotes'].insert_many(data_forecast)
+        collection = db[name_collection].insert_many(data_forecast)
 
         print(collection)
         forecast.set_index('date', inplace=True)
